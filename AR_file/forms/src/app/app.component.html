@@ -1,0 +1,82 @@
+<div class="container mt-3 text-center">
+    <div class="row">
+        <div class="co-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="p-3">
+                        <div>
+                          <label for="username " class="p-3">Username:</label>
+                          <input
+                            id="username"
+                            formControlName="username"
+                            type="text"
+                            placeholder="Enter your username"
+                            [ngClass]="{
+                              'valid': registrationForm.controls['username'].valid,
+                              'invalid': registrationForm.controls['username'].invalid && registrationForm.controls['username'].touched
+                            }"
+                          />
+                          <span *ngIf="registrationForm.controls['username'].valid" class="tick-mark" ></span>
+                          <span *ngIf="registrationForm.controls['username'].invalid && registrationForm.controls['username'].touched"
+                                class="error">Invalid Username (min 3 characters, only letters and numbers)</span>
+                        </div>
+                      
+                        <div>
+                          <label for="email" class="p-3">Email:</label>
+                          <input
+                            id="email"
+                            formControlName="email"
+                            type="email"
+                            placeholder="Enter your email"
+                            [ngClass]="{
+                              'valid': registrationForm.controls['email'].valid,
+                              'invalid': registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched
+                            }"
+                          />
+                          <span *ngIf="registrationForm.controls['email'].valid"></span>
+                          <span *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched"
+                                class="error">Invalid Email format</span>
+                        </div>
+                      
+                        <div>
+                          <label for="password" class="p-3">New Password:</label>
+                          <input
+                            id="password"
+                            formControlName="password"
+                            type="password"
+                            placeholder="Enter new password"
+                            [ngClass]="{
+                              'valid': registrationForm.controls['password'].valid,
+                              'invalid': registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched
+                            }"
+                          />
+                          <span *ngIf="registrationForm.controls['password'].valid" ></span>
+                          <span *ngIf="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched"
+                                class="error">Invalid Password (min 8 characters, must include uppercase, lowercase, and a number)</span>
+                        </div>
+                      
+                        <div>
+                          <label for="confirmPassword" class="p-3">Confirm Password:</label>
+                          <input
+                            id="confirmPassword"
+                            formControlName="confirmPassword"
+                            type="password"
+                            placeholder="Confirm password"
+                            [ngClass]="{
+                              'valid': registrationForm.controls['confirmPassword'].valid,
+                              'invalid': registrationForm.controls['confirmPassword'].invalid && registrationForm.controls['confirmPassword'].touched
+                            }"
+                          />
+                          <span *ngIf="registrationForm.controls['confirmPassword'].valid" ></span>
+                          <span *ngIf="registrationForm.controls['confirmPassword'].invalid && registrationForm.controls['confirmPassword'].touched"
+                                class="error">Passwords do not match</span>
+                        </div>
+                      
+                        <button type="submit" [disabled]="registrationForm.invalid" class="btn btn-info btn-sm">Register</button>
+                      </form>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="row" *ngIf="githubProfile">
+    <div class="col-md-3">
+        <app-github-profile-card [githubProfile]="githubProfile"> </app-github-profile-card>
+    </div>
+    <div class="col-md-9">
+        <app-profile-details [githubProfile]="githubProfile"></app-profile-details>
+    </div>
+</div>
